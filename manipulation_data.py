@@ -1,7 +1,7 @@
 ##################################################################################
 #                         Campo de Bibliotecas                                   #
 ##################################################################################
-
+from unidecode import unidecode
 import pandas as pd
 import re
 
@@ -44,6 +44,8 @@ def manipulation(arquivo):
     supervisoriofinal = pd.DataFrame(supervisoriofinal.drop([0,2]))
     supervisoriofinal.reset_index(drop = True, inplace = True)
     supervisoriofinal.at[0, 0] = "DATA"
+    for col in supervisoriofinal.columns:
+        supervisoriofinal[col] = supervisoriofinal[col].apply(lambda x: unidecode(x) if isinstance(x, str) else x)
 
     # Atribuir nomes das colunas corretamente
     col_names = supervisoriofinal.iloc[0].tolist()

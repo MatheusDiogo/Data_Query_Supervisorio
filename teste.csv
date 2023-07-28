@@ -1,4 +1,4 @@
-DATA,Volume_Tq_Sebo_1,Nivel_Tanque_Sebo_1,Temperatura_Tanque_de_Sebo_1,Volume_Tq_Sebo_2,Nivel_Tanque_Sebo_2,Temperatura_Tanque_de_Sebo_2,Volume Tq. Sebo 3 em kg,Nível Tanque Óleos,Temperatura Tanque de Sebo 3,Volume Tq. Sebo 4 em kg,Nível Tanque Sebo 4,Temperatura Tanque de Sebo 4,Volume Tq. Sebo 5 em kg,Nível Tanque Sebo 5,Temperatura Tanque de Sebo 5
+DATA,Volume_Tq_Sebo_1,Nivel_Tanque_Sebo_1,Temperatura_Tanque_de_Sebo_1,Volume_Tq_Sebo_2,Nivel_Tanque_Sebo_2,Temperatura_Tanque_de_Sebo_2,Volume Tq. Sebo 3 em kg,Nivel Tanque Oleos,Temperatura Tanque de Sebo 3,Volume Tq. Sebo 4 em kg,Nivel Tanque Sebo 4,Temperatura Tanque de Sebo 4,Volume Tq. Sebo 5 em kg,Nivel Tanque Sebo 5,Temperatura Tanque de Sebo 5
 01/01/2023 00:00,38650,10,"48,5",324100,"89,2","18,9",82500,"20,5","35,7",400550,89,"30,4",92000,"22,3","13,5"
 01/01/2023 01:00,38700,10,"48,1",324100,"89,2","18,7",82450,"20,5","35,7",400350,"88,9","29,1",92050,"22,3","13,3"
 01/01/2023 02:00,38600,10,"47,6",324100,"89,2","18,7",82150,"20,4","35,1",399900,"88,8","29,5",92000,"22,3","13,6"

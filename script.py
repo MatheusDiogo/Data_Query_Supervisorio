@@ -6,4 +6,12 @@ from manipulation_data import *
 
 dados = manipulation("humberto.csv")
 
-print(dados)
+engine = create_engine('sqlite:///supervisorio.db')
+
+dados.to_sql('Dados', engine, if_exists='replace', index=False)
+
+query = '''SELECT DATA, Volume_Tq_Sebo_1, Nivel_Tanque_Sebo_1
+FROM Dados'''
+
+df = sql_df(query, engine)
+print(df.tail())
