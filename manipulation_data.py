@@ -61,5 +61,17 @@ def manipulation(arquivo):
     supervisoriofinal.rename(columns=lambda col: col.replace(' ', '_'), inplace=True)
     supervisoriofinal.rename(columns=lambda col: col.replace('.', ''), inplace=True)
 
+
+    # Verificar colunas duplicadas
+    if supervisoriofinal.columns.duplicated().any():
+        # Identificar o nome da coluna duplicada
+        coluna_duplicada = supervisoriofinal.columns[supervisoriofinal.columns.duplicated()][0]
+        
+        # Excluir a coluna duplicada do DataFrame
+        supervisoriofinal = supervisoriofinal.drop(coluna_duplicada, axis=1)
+
+        # Renomear a coluna duplicada
+        #supervisoriofinal.rename(columns={coluna_duplicada: coluna_duplicada + '_duplicada'}, inplace=True)
+
     supervisoriofinal.to_csv(filename, index=False) #convertendo para planilha excel
     return supervisoriofinal
