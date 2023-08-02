@@ -11,7 +11,7 @@ def manipulation(arquivo):
     ##################################################################################
 
     abre_Arquivo = pd.read_csv(arquivo, encoding='ISO-8859-1', delimiter = ';') #variavel do tipo data frame que guardara o arquivo
-    filename = "teste.csv" #nome do arquivo de saida
+    filename = "teste saida.csv" #nome do arquivo de saida
 
     ##################################################################################
     #                         Inicializando variaveis                                #
