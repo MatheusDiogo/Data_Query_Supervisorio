@@ -5,18 +5,6 @@ from Query_Sql import *
 from manipulation_data import *
 from data_alpha import *
 
-dados = manipulation("teste entrada.csv")
-
-engine = create_engine('sqlite:///supervisorio.db')
-
-dados.to_sql('Dados', engine, if_exists = 'replace', index=False)
-
-query = '''SELECT DATA, Volume_Tq_Sebo_1_em_kg, Nivel_Tanque_Sebo_1, Temperatura_Tanque_de_Sebo_1
-FROM Dados'''
-
-df = sql_df(query, engine)
-print(df.tail())
-
 # Lista com as tags desejadas
 tags_desejadas = ['V-1101', 'LI-1101', 'TI-2101', 'V-1201', 'LI-1201',
                   'TI-2102', 'V-1301', 'LI-1301', 'TI-2103', 'V-2105',
@@ -28,6 +16,18 @@ tags_desejadas = ['V-1101', 'LI-1101', 'TI-2101', 'V-1201', 'LI-1201',
                   'PI-0301', 'PI-6401', 'TI-0803', 'TI-0804', 'PI-0302']
 
 # # Loop principal para executar a cada 1 minuto
-# while True:
-#     retirar_dados(tags_desejadas)
-#     time.sleep(60)  # Aguarda 1 minuto antes da próxima execução
+while True:
+    retirar_dados(tags_desejadas)
+    time.sleep(60)  # Aguarda 1 minuto antes da próxima execução
+
+    dados = manipulation("teste entrada.csv")
+
+    engine = create_engine('sqlite:///supervisorio.db')
+
+    dados.to_sql('Dados', engine, if_exists = 'replace', index=False)
+
+    query = '''SELECT DATA, Volume_Tq_Sebo_1_em_kg, Nivel_Tanque_Sebo_1, Temperatura_Tanque_de_Sebo_1
+    FROM Dados'''
+
+    df = sql_df(query, engine)
+    print(df.tail())
