@@ -57,5 +57,9 @@ def manipulation(arquivo):
     # Atribuir o nome correto à primeira coluna
     supervisoriofinal.rename(columns={col_names[0]: "DATA"}, inplace=True)
     
+    # Substituir espaços em branco por sublinhados em todos os nomes de colunas
+    supervisoriofinal.rename(columns=lambda col: col.replace(' ', '_'), inplace=True)
+    supervisoriofinal.rename(columns=lambda col: col.replace('.', ''), inplace=True)
+
     supervisoriofinal.to_csv(filename, index=False) #convertendo para planilha excel
     return supervisoriofinal
