@@ -4,6 +4,7 @@
 from unidecode import unidecode
 import pandas as pd
 import re
+from datetime import datetime
 
 def manipulation(arquivo):
     ##################################################################################
@@ -55,6 +56,9 @@ def manipulation(arquivo):
 
     # Atribuir o nome correto à primeira coluna
     supervisoriofinal.rename(columns={col_names[0]: "DATA"}, inplace=True)
+
+    # Convertendo a coluna 'DATA' para o formato desejado
+    supervisoriofinal['DATA'] = pd.to_datetime(supervisoriofinal['DATA'], format='%d/%m/%y %H:%M:%S').dt.strftime('%m-%d-%y %H:%M:%S')
     
     # Substituir espaços em branco por sublinhados em todos os nomes de colunas
     supervisoriofinal.rename(columns=lambda col: col.replace(' ', '_'), inplace=True)
