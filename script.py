@@ -18,7 +18,6 @@ tags_desejadas = ['V-1101', 'LI-1101', 'TI-2101', 'V-1201', 'LI-1201',
 # # Loop principal para executar a cada 1 minuto
 while True:
     retirar_dados(tags_desejadas)
-    time.sleep(60)  # Aguarda 1 minuto antes da próxima execução
 
     dados = manipulation("teste entrada.csv")
 
@@ -31,3 +30,5 @@ while True:
 
     df = sql_df(query, engine)
     print(df.tail())
+
+    time.sleep(60)  # Aguarda 1 minuto antes da próxima execução
