@@ -43,7 +43,6 @@ def manipulation(arquivo):
     supervisoriofinal = supervisoriofinal.T
     supervisoriofinal = pd.DataFrame(supervisoriofinal.drop([0,2]))
     supervisoriofinal.reset_index(drop = True, inplace = True)
-    supervisoriofinal.at[0, 0] = "DATA"
     for col in supervisoriofinal.columns:
         supervisoriofinal[col] = supervisoriofinal[col].apply(lambda x: unidecode(x) if isinstance(x, str) else x)
 
@@ -60,7 +59,6 @@ def manipulation(arquivo):
     # Substituir espaços em branco por sublinhados em todos os nomes de colunas
     supervisoriofinal.rename(columns=lambda col: col.replace(' ', '_'), inplace=True)
     supervisoriofinal.rename(columns=lambda col: col.replace('.', ''), inplace=True)
-
 
     # Verificar colunas duplicadas
     if supervisoriofinal.columns.duplicated().any():
